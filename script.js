@@ -15,12 +15,25 @@ div.innerHTML = `
   <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-content" id="myDropdown">
-    <a href="">MM</a>
+    <a href="#">MM</a>
     <a href="#">Inch</a>
   </div>
   </div> 
-<a href=""><button class="cta-button edit">Edit</button></a>
-<a href=""><button class="cta-button info">Info</button></a>
+  <div class="dropdown">
+  <button class="cta-button l" >
+  Edit
+  <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-content" id="myDropdown">
+    <a href="#">Dark theme</a>
+    <a href="#">Light theme</a>
+  </div>
+  </div> 
+  <a href=""><button class="cta-button info">Info</button></a>
+
+<a href=""><button class="cta-button-right table">Table</button></a>
+<a href=""><button class="cta-button-right drill">Drill</button></a>
+<a href=""><button class="cta-button-right mill">Mill</button></a>
 `
 
 const button = div.querySelector(".print");
@@ -37,7 +50,19 @@ button.addEventListener("click", () => {
   WinPrint.close();
 }, false);
 
+const form = document.createElement("form");
+form.setAttribute("method", "POST");
 
+form.innerHTML = `
+<div class ="tool-data">
+<h4>Tool Data</h4>
+<a class ="parameter">Diameter (D): <input type="number" name="fname" maxlength="5"></a>
+<a class ="parameter">Flutes (Z): <input type="number" name="fname" maxlength="5"></a>
+<a class ="parameter">Feed per tooth (Fz): <input type="number" name="fname" maxlength="5"></a>
+<a class ="parameter">Surface feed (V): <input type="number" name="fname" maxlength="5"></a>
+</div>
+`
 
 const main = document.querySelector("main");
 main.append(div);
+main.append(form);
