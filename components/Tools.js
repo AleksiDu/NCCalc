@@ -6,25 +6,18 @@ class Tools {
     constructor(
         id,
         type,
-        name,
         diameter,
-        length,
-        partNumber,
-        toolHolder,
-        feed,
-        speed,
-        toolLife
+        fluetes,
+        feedPerTooth,
+        surfaceFeed,
     ) {
         this.id = id;
         this.type = type;
-        this.name = name;
         this.diameter = diameter;
-        this.length = length;
+        this.fluetes = fluetes;
         this.partNumber = partNumber;
-        this.toolHolder = toolHolder;
-        this.feed = feed;
-        this.speed = speed;
-        this.toolLife = toolLife;
+        this.feedPerTooth = feedPerTooth;
+        this.surfaceFeed = surfaceFeed;
     }
 }
 
