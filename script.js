@@ -52,30 +52,37 @@ button.addEventListener("click", () => {
 
 const form = document.createElement("form");
 form.setAttribute("method", "POST");
+form.setAttribute("id", "form1")
 
 form.innerHTML = `
 <div class ="tool-data">
 <h4>Tool Data</h4>
-<a class ="parameter">Diameter (D): <input type="number" name="fname" maxlength="5"></a>
-<a class ="parameter">Flutes (Z): <input type="number" name="fname" maxlength="5"></a>
-<a class ="parameter">Feed per tooth (Fz): <input type="number" name="fname" maxlength="5"></a>
-<a class ="parameter">Surface feed (V): <input type="number" name="fname" maxlength="5"></a>
+<a class ="parameter">Diameter (D): <input type="number" name="fname" maxlength="5" id ="diameter"></a>
+<a class ="parameter">Flutes (Z): <input type="number" name="fname" maxlength="5" id ="flutes"></a>
+<a class ="parameter">Feed per tooth (Fz): <input type="number" name="fname" maxlength="5" id ="feedPerTooth"></a>
+<a class ="parameter">Surface feed (V): <input type="number" name="fname" maxlength="5" id ="surfaceFeed"></a>
 <div class ="result">
 <h4>Result</h4>
-<a class = "parameter">Feedrate (F): <input type="number" name="feed" size="35" id="ans" /></a>
-<a class = "parameter">RPM (S): <input type="number" name="speed" size="35" id="ans" /></a>
-<a class = "parameter"><button type="button">Calculate</button></a>
+<a class = "parameter">Feedrate (F): <input type="number" name="feed" size="35" id="feed" /></a>
+<a class = "parameter">RPM (S): <input type="number" name="speed" size="35" id="speed" /></a>
+<a class = "parameter"><button type="button" class ="calculate">Calculate</button></a>
 </div>
 </div>
-
 `
-// function Calculate() {
-//   var first = document.getElementById('first').value;
-//   var last = document.getElementById('sec').value;
 
-//   document.getElementById('ans').value = parseInt(first) + parseInt(last);
-//   document.form1.submit();
-// }
+const calcButton = form.querySelector(".calculate");
+
+calcButton.addEventListener("click", () => {
+  let diameter = document.getElementById('diameter').value;
+  let flutes = document.getElementById('flutes').value;
+  let feedPerTooth = document.getElementById('feedPerTooth').value;
+  let surfaceFeed = document.getElementById('surfaceFeed').value;
+
+  document.getElementById('feed').value = parseInt(diameter) + 1;
+  document.getElementById('speed').value = parseInt(diameter) + 1;
+  document.form1.submit();
+})
+
 
 const main = document.querySelector("main");
 main.append(div);
