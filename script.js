@@ -60,8 +60,22 @@ form.innerHTML = `
 <a class ="parameter">Flutes (Z): <input type="number" name="fname" maxlength="5"></a>
 <a class ="parameter">Feed per tooth (Fz): <input type="number" name="fname" maxlength="5"></a>
 <a class ="parameter">Surface feed (V): <input type="number" name="fname" maxlength="5"></a>
+<div class ="result">
+<h4>Result</h4>
+<a class = "parameter">Feedrate (F): <input type="number" name="feed" size="35" id="ans" /></a>
+<a class = "parameter">RPM (S): <input type="number" name="speed" size="35" id="ans" /></a>
+<a class = "parameter"><button type="button">Calculate</button></a>
 </div>
+</div>
+
 `
+// function Calculate() {
+//   var first = document.getElementById('first').value;
+//   var last = document.getElementById('sec').value;
+
+//   document.getElementById('ans').value = parseInt(first) + parseInt(last);
+//   document.form1.submit();
+// }
 
 const main = document.querySelector("main");
 main.append(div);

@@ -74,6 +74,12 @@ body {
   text-align: right;
 }
 
+.result {
+  max-width: 100%;
+  text-align: center;
+  float: right;
+}
+
 /* Dropdown Content */
 .dropdown {
   float: left;
