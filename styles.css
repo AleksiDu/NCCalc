@@ -1,5 +1,7 @@
 :root {
   --feed: "mm/min";
+  --metric: "mm/min";
+  --inches: "inch/min";
 }
 
 h1,

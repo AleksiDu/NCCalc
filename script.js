@@ -15,16 +15,16 @@ div.innerHTML = `
   <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-content" id="myDropdown">
-    <a href="#" class ="metric">MM</a>
-    <a href="#" class = "inches">Inch</a>
+    <a href="#" class="metric">MM</a>
+    <a href="#" class="inches">Inch</a>
   </div>
   </div> 
   <div class="dropdown">
-  <button class="cta-button l" >
+  <button class="cta-button">
   Edit
   <i class="fa fa-caret-down"></i>
   </button>
-  <div class="dropdown-content" id="myDropdown">
+  <div class="dropdown-content" id="myDropdown1">
     <a href="#">Dark theme</a>
     <a href="#">Light theme</a>
   </div>
@@ -49,6 +49,23 @@ button.addEventListener("click", () => {
   WinPrint.print();
   WinPrint.close();
 }, false);
+
+let feed = "var(--metric)";
+let speed = "rpm";
+
+const rootElement = document.documentElement;
+const metric = div.querySelector(".metric");
+const inches = div.querySelector(".inches");
+
+metric.addEventListener("click", () => {
+  rootElement.style.setProperty("--feed", feed);
+  // rootElement.style.setProperty("--background", "black");
+}, false);
+
+inches.addEventListener("click", () => {
+  rootElement.style.setProperty("--feed", "var(--inches)");
+})
+
 
 const form = document.createElement("form");
 form.setAttribute("method", "POST");
@@ -87,20 +104,7 @@ calcButton.addEventListener("click", () => {
   // document.form1.submit();
 })
 
-let feed = "mm/min";
-let speed = "rpm";
 
-const rootElement = document.querySelector(":root");
-const metric = document.querySelector("metric");
-const inches = document.querySelector("inches");
-
-// metric.addEventListener("click", () => {
-//   rootElement.style.setProperty("--feed", "mm/min");
-// });
-
-// inches.addEventListener("click", () => {
-//   rootElement.style.setProperty("--feed", "inch/min");
-// })
 
 
 const main = document.querySelector("main");
