@@ -19,6 +19,8 @@ div.innerHTML = `
     <a href="#" class="inches">Inch</a>
   </div>
   </div> 
+  <a class ="tool-image">
+  </a>
   <div class="dropdown">
   <button class="cta-button">
   Edit
@@ -29,13 +31,11 @@ div.innerHTML = `
     <a href="#">Light theme</a>
   </div>
   </div> 
-  <a href=""><button class="cta-button info">Info</button></a>
-
+<a href=""><button class="cta-button info">Info</button></a>
 <a href=""><button class="cta-button-right table">Table</button></a>
-<a href=""><button class="cta-button-right drill">Drill</button></a>
-<a href=""><button class="cta-button-right mill">Mill</button></a>
+<a href="#"><button class="cta-button-right drill">Drill</button></a>
+<a href="#"><button class="cta-button-right mill">Mill</button></a>
 `
-
 const button = div.querySelector(".print");
 // Log when the button is clicked in the console.
 button.addEventListener("click", () => {
@@ -50,7 +50,8 @@ button.addEventListener("click", () => {
   WinPrint.close();
 }, false);
 
-let feed = "var(--metric)";
+let feedMetric = "var(--metric)";
+let feedInches = "var(--inches)"
 let speed = "rpm";
 
 const rootElement = document.documentElement;
@@ -58,14 +59,28 @@ const metric = div.querySelector(".metric");
 const inches = div.querySelector(".inches");
 
 metric.addEventListener("click", () => {
-  rootElement.style.setProperty("--feed", feed);
+  rootElement.style.setProperty("--feed", feedMetric);
 }, false);
 
 inches.addEventListener("click", () => {
-  rootElement.style.setProperty("--feed", "var(--inches)");
+  rootElement.style.setProperty("--feed", feedInches);
+});
+
+const millButton = div.querySelector(".mill");
+const drilButton = div.querySelector(".drill");
+let cssVarMill = "var(--millImage)";
+let cssVarDrill = "var(--drillImage)";
+millButton.addEventListener("click", () => {
+  rootElement.style.setProperty("--toolImage", cssVarMill);
+});
+
+drilButton.addEventListener("click", () => {
+  rootElement.style.setProperty("--toolImage", cssVarDrill);
 })
 
-
+/**
+ * Tool Data
+ */
 const form = document.createElement("form");
 form.setAttribute("method", "POST");
 form.setAttribute("id", "form1");
@@ -106,8 +121,6 @@ calcButton.addEventListener("click", () => {
   document.getElementById('speed').value = parseInt(speedCalculation);
   // document.form1.submit();
 })
-
-
 
 
 const main = document.querySelector("main");

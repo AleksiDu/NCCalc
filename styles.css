@@ -2,6 +2,9 @@
   --feed: "mm/min";
   --metric: "mm/min";
   --inches: "inch/min";
+  --toolImage: url(./images/mill-image.png);
+  --millImage: url(./images/mill-image.png);
+  --drillImage: url(./images/drill-image.png);
 }
 
 h1,
@@ -163,4 +166,14 @@ body {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/* Tool image set */
+.tool-image {
+  position: absolute;
+  width: 9em;
+  height: 3em;
+  background: var(--toolImage);
+  background-repeat: no-repeat;
+  background-size: 9em 3em;
 }
