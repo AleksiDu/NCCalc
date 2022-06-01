@@ -1,3 +1,7 @@
+:root {
+  --feed: "mm/min";
+}
+
 h1,
 h2,
 h3,
@@ -51,16 +55,17 @@ body {
   text-decoration: none;
   font-size: 17px;
   border: none;
-  margin-left: 50px;
+  margin-left: 100px;
 }
 
 .cta-button-right:hover {
   color: #ece5c7;
-
 }
 
-.tool-data {
-  max-width: 50%;
+.container-table {
+  max-height: 100%;
+  max-width: 400px;
+  background-color: #ece5c7;
   text-align: center;
   float: right;
 }
@@ -74,12 +79,52 @@ body {
   text-align: right;
 }
 
+.tool-data {
+  max-width: 100%;
+  text-align: center;
+  float: right;
+}
+
 .result {
   max-width: 100%;
   text-align: center;
   float: right;
 }
 
+.feedrate {
+  position: relative;
+  text-align: right;
+}
+
+.feedrate::after {
+  position: absolute;
+  top: 12px;
+  right: 1.5em;
+  transition: all 0.05s ease-in-out;
+  content: var(--feed);
+}
+
+.feedrate:hover::after,
+.feedrate:focus-within::after {
+  right: 2.5em;
+}
+
+.rotation-speed {
+  position: relative;
+  text-align: right;
+}
+.rotation-speed::after {
+  position: absolute;
+  top: 12px;
+  right: 1.5em;
+  transition: all 0.05s ease-in-out;
+  content: "rpm";
+}
+
+.rotation-speed:hover::after,
+.rotation-speed:focus-within::after {
+  right: 2.5em;
+}
 /* Dropdown Content */
 .dropdown {
   float: left;

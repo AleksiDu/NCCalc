@@ -15,8 +15,8 @@ div.innerHTML = `
   <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-content" id="myDropdown">
-    <a href="#">MM</a>
-    <a href="#">Inch</a>
+    <a href="#" class ="metric">MM</a>
+    <a href="#" class = "inches">Inch</a>
   </div>
   </div> 
   <div class="dropdown">
@@ -52,19 +52,23 @@ button.addEventListener("click", () => {
 
 const form = document.createElement("form");
 form.setAttribute("method", "POST");
-form.setAttribute("id", "form1")
+form.setAttribute("id", "form1");
+
 
 form.innerHTML = `
+<div class ="container-table">
 <div class ="tool-data">
 <h4>Tool Data</h4>
 <a class ="parameter">Diameter (D): <input type="number" name="fname" maxlength="5" id ="diameter"></a>
 <a class ="parameter">Flutes (Z): <input type="number" name="fname" maxlength="5" id ="flutes"></a>
 <a class ="parameter">Feed per tooth (Fz): <input type="number" name="fname" maxlength="5" id ="feedPerTooth"></a>
 <a class ="parameter">Surface feed (V): <input type="number" name="fname" maxlength="5" id ="surfaceFeed"></a>
+</div>
+
 <div class ="result">
 <h4>Result</h4>
-<a class = "parameter">Feedrate (F): <input type="number" name="feed" size="35" id="feed" /></a>
-<a class = "parameter">RPM (S): <input type="number" name="speed" size="35" id="speed" /></a>
+<a class = "parameter feedrate">Feedrate (F): <input type="number" name="feed" size="35" id="feed"/></a>
+<a class = "parameter rotation-speed">RPM (S): <input type="number" name="speed" size="35" id="speed"/></a>
 <a class = "parameter"><button type="button" class ="calculate">Calculate</button></a>
 </div>
 </div>
@@ -80,8 +84,23 @@ calcButton.addEventListener("click", () => {
 
   document.getElementById('feed').value = parseInt(diameter) + 1;
   document.getElementById('speed').value = parseInt(diameter) + 1;
-  document.form1.submit();
+  // document.form1.submit();
 })
+
+let feed = "mm/min";
+let speed = "rpm";
+
+const rootElement = document.querySelector(":root");
+const metric = document.querySelector("metric");
+const inches = document.querySelector("inches");
+
+// metric.addEventListener("click", () => {
+//   rootElement.style.setProperty("--feed", "mm/min");
+// });
+
+// inches.addEventListener("click", () => {
+//   rootElement.style.setProperty("--feed", "inch/min");
+// })
 
 
 const main = document.querySelector("main");
