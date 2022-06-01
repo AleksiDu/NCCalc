@@ -59,7 +59,6 @@ const inches = div.querySelector(".inches");
 
 metric.addEventListener("click", () => {
   rootElement.style.setProperty("--feed", feed);
-  // rootElement.style.setProperty("--background", "black");
 }, false);
 
 inches.addEventListener("click", () => {
@@ -98,9 +97,13 @@ calcButton.addEventListener("click", () => {
   let flutes = document.getElementById('flutes').value;
   let feedPerTooth = document.getElementById('feedPerTooth').value;
   let surfaceFeed = document.getElementById('surfaceFeed').value;
+  const pi = 3.14159;
 
-  document.getElementById('feed').value = parseInt(diameter) + 1;
-  document.getElementById('speed').value = parseInt(diameter) + 1;
+  let speedCalculation = parseFloat(surfaceFeed) / parseFloat(diameter) / pi * 1000;
+  let feedCalculation = parseFloat(speedCalculation) * parseFloat(feedPerTooth) * parseFloat(flutes);
+
+  document.getElementById('feed').value = parseInt(feedCalculation);
+  document.getElementById('speed').value = parseInt(speedCalculation);
   // document.form1.submit();
 })
 
