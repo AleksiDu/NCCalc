@@ -27,8 +27,8 @@ div.innerHTML = `
   <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-content" id="myDropdown1">
-    <a href="#">Dark theme</a>
-    <a href="#">Light theme</a>
+    <a href="#" class ="dark">Dark theme</a>
+    <a href="#" class ="light">Light theme</a>
   </div>
   </div> 
 <a href=""><button class="cta-button info">Info</button></a>
@@ -36,6 +36,10 @@ div.innerHTML = `
 <a href="#"><button class="cta-button-right drill">Drill</button></a>
 <a href="#"><button class="cta-button-right mill">Mill</button></a>
 `
+
+/**
+ *  Print (crt + p)
+ */
 const button = div.querySelector(".print");
 // Log when the button is clicked in the console.
 button.addEventListener("click", () => {
@@ -50,6 +54,9 @@ button.addEventListener("click", () => {
   WinPrint.close();
 }, false);
 
+/**
+ *  Units (mm/inches) mode
+ */
 let feedMetric = "var(--metric)";
 let feedInches = "var(--inches)"
 let speed = "rpm";
@@ -66,6 +73,9 @@ inches.addEventListener("click", () => {
   rootElement.style.setProperty("--feed", feedInches);
 });
 
+/**
+ *   Mill/Drill mode
+ */
 const millButton = div.querySelector(".mill");
 const drilButton = div.querySelector(".drill");
 let cssVarMill = "var(--millImage)";
@@ -76,7 +86,24 @@ millButton.addEventListener("click", () => {
 
 drilButton.addEventListener("click", () => {
   rootElement.style.setProperty("--toolImage", cssVarDrill);
-})
+});
+
+
+/**
+ * Edit (Dark/Light mode) theme
+ */
+const dark = div.querySelector(".dark");
+const light = div.querySelector(".light");
+let darkMode = "var(--dark)";
+let lightMode = "var(--light)"
+
+dark.addEventListener("click", () => {
+  rootElement.style.setProperty("--theme", darkMode);
+}, false);
+
+light.addEventListener("click", () => {
+  rootElement.style.setProperty("--theme", lightMode);
+});
 
 /**
  * Tool Data

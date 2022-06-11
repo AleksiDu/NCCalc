@@ -5,6 +5,14 @@
   --toolImage: url(./images/mill-image.png);
   --millImage: url(./images/mill-image.png);
   --drillImage: url(./images/drill-image.png);
+  --transition: all .5s;
+  --theme: white;
+  --dark: black;
+  --light: white;
+}
+
+* {
+  transition: var(--transition);
 }
 
 h1,
@@ -23,7 +31,9 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "monserrat";
+  background-color: var(--theme);
 }
+
 
 /* Add a #354259 background color to the top navigation */
 .topnav {
@@ -118,6 +128,7 @@ body {
   position: relative;
   text-align: right;
 }
+
 .rotation-speed::after {
   position: absolute;
   top: 12px;
@@ -130,6 +141,7 @@ body {
 .rotation-speed:focus-within::after {
   right: 2.5em;
 }
+
 /* Dropdown Content */
 .dropdown {
   float: left;
