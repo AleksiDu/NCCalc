@@ -6,9 +6,9 @@
   --millImage: url(./images/mill-image.png);
   --drillImage: url(./images/drill-image.png);
   --transition: all .5s;
-  --theme: white;
-  --dark: black;
-  --light: white;
+  --theme: #E0DECA;
+  --dark: #1B2430;
+  --light: #E0DECA;
 }
 
 * {

@@ -31,7 +31,7 @@ div.innerHTML = `
     <a href="#" class ="light">Light theme</a>
   </div>
   </div> 
-<a href=""><button class="cta-button info">Info</button></a>
+<a href="#"><button class="cta-button info">Info</button></a>
 <a href=""><button class="cta-button-right table">Table</button></a>
 <a href="#"><button class="cta-button-right drill">Drill</button></a>
 <a href="#"><button class="cta-button-right mill">Mill</button></a>
