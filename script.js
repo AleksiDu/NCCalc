@@ -102,12 +102,15 @@ let darkHover = "var(--dark-hover)";
 let lightHover = "var(--light-hover)";
 let darkText = "var(--dark-text)";
 let lightText = "var(--light-text)";
+let darkTextMenu = "var(--dark-text-menu)";
+let lightTextMenu = "var(--light-text-menu)";
 
 dark.addEventListener("click", () => {
   rootElement.style.setProperty("--theme-bg", darkBg);
   rootElement.style.setProperty("--theme-menu", darkMenu);
   rootElement.style.setProperty("--theme-hover", darkHover);
   rootElement.style.setProperty("--theme-text", darkText);
+  rootElement.style.setProperty("--theme-text-menu", darkTextMenu);
 });
 
 light.addEventListener("click", () => {
@@ -115,6 +118,7 @@ light.addEventListener("click", () => {
   rootElement.style.setProperty("--theme-menu", lightMenu);
   rootElement.style.setProperty("--theme-hover", lightHover);
   rootElement.style.setProperty("--theme-text", lightText);
+  rootElement.style.setProperty("--theme-text-menu", lightTextMenu);
 });
 
 /**
