@@ -94,15 +94,27 @@ drilButton.addEventListener("click", () => {
  */
 const dark = div.querySelector(".dark");
 const light = div.querySelector(".light");
-let darkMode = "var(--dark)";
-let lightMode = "var(--light)"
+let darkBg = "var(--dark-bg)";
+let lightBg = "var(--light-bg)";
+let darkMenu = "var(--dark-menu)";
+let lightMenu = "var(--light-menu)";
+let darkHover = "var(--dark-hover)";
+let lightHover = "var(--light-hover)";
+let darkText = "var(--dark-text)";
+let lightText = "var(--light-text)";
 
 dark.addEventListener("click", () => {
-  rootElement.style.setProperty("--theme", darkMode);
-}, false);
+  rootElement.style.setProperty("--theme-bg", darkBg);
+  rootElement.style.setProperty("--theme-menu", darkMenu);
+  rootElement.style.setProperty("--theme-hover", darkHover);
+  rootElement.style.setProperty("--theme-text", darkText);
+});
 
 light.addEventListener("click", () => {
-  rootElement.style.setProperty("--theme", lightMode);
+  rootElement.style.setProperty("--theme-bg", lightBg);
+  rootElement.style.setProperty("--theme-menu", lightMenu);
+  rootElement.style.setProperty("--theme-hover", lightHover);
+  rootElement.style.setProperty("--theme-text", lightText);
 });
 
 /**
