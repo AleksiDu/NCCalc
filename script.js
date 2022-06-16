@@ -2,8 +2,6 @@
  * Import componets
  */
 
-// import Tools from "./Tools";
-
 const div = document.createElement("div");
 div.classList.add("topnav");
 
