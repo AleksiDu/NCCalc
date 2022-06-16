@@ -5,4 +5,4 @@
 3. Calculator;
 4. Tool selector;
 
-## _ Link https://aleksidu.github.io/NCCalc/ _
+## _ Link: NCCalc {https://aleksidu.github.io/NCCalc/} _
