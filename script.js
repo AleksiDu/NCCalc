@@ -27,15 +27,19 @@ div.innerHTML = `
   <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-content" id="myDropdown1">
-    <a href="#">Dark theme</a>
-    <a href="#">Light theme</a>
+    <a href="#" class ="dark">Dark theme</a>
+    <a href="#" class ="light">Light theme</a>
   </div>
   </div> 
-<a href=""><button class="cta-button info">Info</button></a>
+<a href="#"><button class="cta-button info">Info</button></a>
 <a href=""><button class="cta-button-right table">Table</button></a>
 <a href="#"><button class="cta-button-right drill">Drill</button></a>
 <a href="#"><button class="cta-button-right mill">Mill</button></a>
 `
+
+/**
+ *  Print (crt + p)
+ */
 const button = div.querySelector(".print");
 // Log when the button is clicked in the console.
 button.addEventListener("click", () => {
@@ -50,6 +54,9 @@ button.addEventListener("click", () => {
   WinPrint.close();
 }, false);
 
+/**
+ *  Units (mm/inches) mode
+ */
 let feedMetric = "var(--metric)";
 let feedInches = "var(--inches)"
 let speed = "rpm";
@@ -68,6 +75,9 @@ inches.addEventListener("click", () => {
   rootElement.style.setProperty("--feed", feedInches);
 });
 
+/**
+ *   Mill/Drill mode
+ */
 const millButton = div.querySelector(".mill");
 const drilButton = div.querySelector(".drill");
 let cssVarMill = "var(--millImage)";
@@ -78,7 +88,40 @@ millButton.addEventListener("click", () => {
 
 drilButton.addEventListener("click", () => {
   rootElement.style.setProperty("--toolImage", cssVarDrill);
-})
+});
+
+
+/**
+ * Edit (Dark/Light mode) theme
+ */
+const dark = div.querySelector(".dark");
+const light = div.querySelector(".light");
+let darkBg = "var(--dark-bg)";
+let lightBg = "var(--light-bg)";
+let darkMenu = "var(--dark-menu)";
+let lightMenu = "var(--light-menu)";
+let darkHover = "var(--dark-hover)";
+let lightHover = "var(--light-hover)";
+let darkText = "var(--dark-text)";
+let lightText = "var(--light-text)";
+let darkTextMenu = "var(--dark-text-menu)";
+let lightTextMenu = "var(--light-text-menu)";
+
+dark.addEventListener("click", () => {
+  rootElement.style.setProperty("--theme-bg", darkBg);
+  rootElement.style.setProperty("--theme-menu", darkMenu);
+  rootElement.style.setProperty("--theme-hover", darkHover);
+  rootElement.style.setProperty("--theme-text", darkText);
+  rootElement.style.setProperty("--theme-text-menu", darkTextMenu);
+});
+
+light.addEventListener("click", () => {
+  rootElement.style.setProperty("--theme-bg", lightBg);
+  rootElement.style.setProperty("--theme-menu", lightMenu);
+  rootElement.style.setProperty("--theme-hover", lightHover);
+  rootElement.style.setProperty("--theme-text", lightText);
+  rootElement.style.setProperty("--theme-text-menu", lightTextMenu);
+});
 
 /**
  * Tool Data

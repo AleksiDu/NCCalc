@@ -5,6 +5,26 @@
   --toolImage: url(./images/mill-image.png);
   --millImage: url(./images/mill-image.png);
   --drillImage: url(./images/drill-image.png);
+  --transition: all .5s;
+  --theme-bg: #E0DECA;
+  --dark-bg: #1B2430;
+  --light-bg: #E0DECA;
+  --theme-menu: #cdc2ae;
+  --dark-menu: #51557E;
+  --light-menu: #cdc2ae;
+  --theme-hover: #ece5c7;
+  --dark-hover: #816797;
+  --light-hover: #ece5c7;
+  --theme-text: #c2ded1;
+  --dark-text: #D6D5A8;
+  --light-text: #c2ded1;
+  --theme-text-menu: #1B2430;
+  --dark-text-menu: #D6D5A8;
+  --light-text-menu: #1B2430;
+}
+
+* {
+  transition: var(--transition);
 }
 
 h1,
@@ -15,6 +35,7 @@ h5,
 h6 {
   font-family: "Montserrat";
   font-weight: 900;
+  color: var(--theme-text-menu);
 }
 
 body {
@@ -23,7 +44,9 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "monserrat";
+  background-color: var(--theme-bg);
 }
+
 
 /* Add a #354259 background color to the top navigation */
 .topnav {
@@ -32,9 +55,9 @@ body {
 }
 
 .cta-button {
-  background-color: #cdc2ae;
+  background-color: var(--theme-menu);
   float: left;
-  color: #000;
+  color: var(--theme-text-menu);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -43,18 +66,18 @@ body {
 }
 
 .cta-button:hover {
-  background-color: #ece5c7;
+  background-color: var(--theme-hover);
 }
 
 .active {
   color: #354259;
-  background: #c2ded1;
+  background: var(--theme-text);
 }
 
 .cta-button-right {
   background-color: #354259;
   float: right;
-  color: #c2ded1;
+  color: var(--theme-text);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -64,20 +87,20 @@ body {
 }
 
 .cta-button-right:hover {
-  color: #ece5c7;
+  color: var(--theme-hover);
 }
 
 .container-table {
   max-height: 100%;
   max-width: 400px;
-  background-color: #ece5c7;
+  background-color: var(--theme-hover);
   text-align: center;
   float: right;
 }
 
 .parameter {
   float: none;
-  color: #354259;
+  color: var(--theme-text-menu);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -106,6 +129,7 @@ body {
   top: 12px;
   right: 1.5em;
   transition: all 0.05s ease-in-out;
+  color: #1B2430;
   content: var(--feed);
 }
 
@@ -118,10 +142,12 @@ body {
   position: relative;
   text-align: right;
 }
+
 .rotation-speed::after {
   position: absolute;
   top: 12px;
   right: 1.5em;
+  color: #1B2430;
   transition: all 0.05s ease-in-out;
   content: "rpm";
 }
@@ -130,6 +156,7 @@ body {
 .rotation-speed:focus-within::after {
   right: 2.5em;
 }
+
 /* Dropdown Content */
 .dropdown {
   float: left;
@@ -143,7 +170,7 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #cdc2ae;
+  background-color: var(--theme-menu);
   min-width: 160px;
   margin-top: 48px;
   box-shadow: 0px 8px 6px 0px #354259;
@@ -152,7 +179,7 @@ body {
 
 .dropdown-content a {
   float: none;
-  color: #354259;
+  color: var(--theme-text-menu);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -160,7 +187,7 @@ body {
 }
 
 .dropdown-content a:hover {
-  background-color: #ece5c7;
+  background-color: var(--theme-hover);
 }
 
 /* Show the dropdown menu on hover */
