@@ -15,8 +15,8 @@ div.innerHTML = `
   <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-content" id="myDropdown">
-    <a href="#" class="metric">MM</a>
-    <a href="#" class="inches">Inch</a>
+    <a href="#" class="metric active">MM</a>
+    <a href="#" class="inches active">Inch</a>
   </div>
   </div> 
   <a class ="tool-image">
@@ -59,10 +59,12 @@ const metric = div.querySelector(".metric");
 const inches = div.querySelector(".inches");
 
 metric.addEventListener("click", () => {
+  metric.classList.toggle("active");
   rootElement.style.setProperty("--feed", feedMetric);
 }, false);
 
 inches.addEventListener("click", () => {
+  inches.classList.toggle("active");
   rootElement.style.setProperty("--feed", feedInches);
 });
 
