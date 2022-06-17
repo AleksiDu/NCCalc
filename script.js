@@ -35,9 +35,16 @@ div.innerHTML = `
 
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Info about application</p>
-  </div>
+  <div class="modal-header">
+  <span class="close">&times;</span>
+  <img src ="/public/images/nc.ico" width="35" height="35" class = "info-logo">
+  <h1>NCCalc</h1>
+</div>
+<div class="modal-body">
+  <p>Program version 0.0.0</p>
+  <p>2022</p>
+</div>
+</div>
 
 </div>
 

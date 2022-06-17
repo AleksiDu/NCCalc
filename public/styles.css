@@ -32,7 +32,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p {
   font-family: "Montserrat";
   font-weight: 900;
   color: var(--theme-text-menu);
@@ -235,16 +236,16 @@ The Modal (background)
 
 /* Modal Content */
 .modal-content {
-  background-color: #fefefe;
+  background-color: var(--theme-menu);
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid var(--theme-hover);
   width: 80%;
 }
 
 /* The Close Button */
 .close {
-  color: #aaaaaa;
+  color: var(--theme-text-menu);
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -252,7 +253,47 @@ The Modal (background)
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: var(--theme-menu);
   text-decoration: none;
   cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: var(--theme-hover);
+  color: var(--theme-text-menu);
+}
+
+.modal-body {
+  padding: 2px 16px;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0
+  }
+
+  to {
+    top: 0;
+    opacity: 1
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0
+  }
+
+  to {
+    top: 0;
+    opacity: 1
+  }
+}
+
+.info-logo {
+  float: left;
+  margin: 20px;
 }
