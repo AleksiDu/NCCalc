@@ -234,8 +234,8 @@ window.onload = () => {
 let sortDirection = false;
 let tableData = [
   { id: 1, name: 'T1', type: 'mill', diameter: '6.35', speed: '4000', feed: '800' },
-  { id: 2, name: 'T2', type: 'mill', diameter: '8.00', speed: '4800', feed: '500' },
-  { id: 3, name: 'T3', type: 'Drill', diameter: '6.35', speed: '3500', feed: '150' }
+  { id: 2, name: 'T2', type: 'mill', diameter: '8.00', speed: '4500', feed: '500' },
+  { id: 3, name: 'T3', type: 'Drill', diameter: '6.35', speed: '6500', feed: '150' }
 ];
 
 function loadTableData(tableData) {
@@ -260,7 +260,6 @@ function sortColumn(columnName) {
       sortNumberColumn(sortDirection, columnName);
       break;
   }
-  loadTableData(tableData);
 }
 
 function sortNumberColumn(sort, columnName) {
