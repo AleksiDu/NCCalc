@@ -260,6 +260,7 @@ function sortColumn(columnName) {
       sortNumberColumn(sortDirection, columnName);
       break;
   }
+  loadTableData(tableData);
 }
 
 function sortNumberColumn(sort, columnName) {
