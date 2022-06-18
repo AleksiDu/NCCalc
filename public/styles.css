@@ -21,6 +21,9 @@
   --theme-text-menu: #1B2430;
   --dark-text-menu: #D6D5A8;
   --light-text-menu: #1B2430;
+  --surface: "m/min";
+  --surfaceMetric: "m/min";
+  --surfaceInches: "ft/min";
 }
 
 * {
@@ -137,6 +140,25 @@ body {
 
 .feedrate:hover::after,
 .feedrate:focus-within::after {
+  right: 2.5em;
+}
+
+.surface-feed {
+  position: relative;
+  text-align: right;
+}
+
+.surface-feed::after {
+  position: absolute;
+  top: 12px;
+  right: 1.5em;
+  transition: all 0.05s ease-in-out;
+  color: #1B2430;
+  content: var(--surface);
+}
+
+.surface-feed:hover::after,
+.surface-feed:focus-within::after {
   right: 2.5em;
 }
 

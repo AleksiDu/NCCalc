@@ -74,7 +74,9 @@ button.addEventListener("click", () => {
  *  Units (mm/inches) mode
  */
 let feedMetric = "var(--metric)";
-let feedInches = "var(--inches)"
+let feedInches = "var(--inches)";
+let surfaceMetric = "var(--surfaceMetric)";
+let surfaceInches = "var(--surfaceInches)";
 let speed = "rpm";
 let calculator = "metric";
 
@@ -84,11 +86,13 @@ const inches = div.querySelector(".inches");
 
 metric.addEventListener("click", () => {
   rootElement.style.setProperty("--feed", feedMetric);
+  rootElement.style.setProperty("--surface", surfaceMetric);
   calculator = "metric";
 }, false);
 
 inches.addEventListener("click", () => {
   rootElement.style.setProperty("--feed", feedInches);
+  rootElement.style.setProperty("--surface", surfaceInches);
   calculator = "inches";
 });
 
@@ -182,7 +186,7 @@ form.innerHTML = `
 <a class ="parameter">Diameter (D): <input type="number" name="fname" maxlength="5" id ="diameter"></a>
 <a class ="parameter">Flutes (Z): <input type="number" name="fname" maxlength="5" id ="flutes"></a>
 <a class ="parameter">Feed per tooth (Fz): <input type="number" name="fname" maxlength="5" id ="feedPerTooth"></a>
-<a class ="parameter">Surface feed (V): <input type="number" name="fname" maxlength="5" id ="surfaceFeed"></a>
+<a class ="parameter surface-feed">Surface feed (V): <input type="number" name="fname" maxlength="5" id ="surfaceFeed"></a>
 </div>
 
 <div class ="result">
