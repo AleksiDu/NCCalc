@@ -60,27 +60,17 @@ div.innerHTML = `
 </div>
 <div class="modal-body">
 <table>
+<thead>
 <tr>
-  <th>Tool Id</th>
-  <th>Tool Name</th>
-  <th>Tool Type</th>
-  <th>Feed</th>
-  <th>Speed</th>
+<th>Id</th>
+<th>Name</th>
+<th>Type</th>
+<th>Diameter</th>
+<th>Speed</th>
+<th>Feed</th>
 </tr>
-<tr>
-  <td>1</td>
-  <td>T1</td>
-  <td>Mill</td>
-  <td>800</td>
-  <td>4000</td>
-</tr>
-<tr>
-  <td>2</td>
-  <td>T2</td>
-  <td>Mill</td>
-  <td>500</td>
-  <td>4800</td>
-</tr>
+</thead>
+<tbody id="tableData"></tbody>
 </table>
 </div>
 </div>
@@ -210,7 +200,7 @@ window.addEventListener("click", (event) => {
 })
 
 /**
- *  Tool Table
+ *  Tool Table Modal
  */
 // Get the modal
 let tableModal = div.querySelector("#tableModal");
@@ -233,6 +223,28 @@ window.addEventListener("click", (event) => {
     tableModal.style.display = "none";
   }
 })
+
+/**
+ *  Tool Table
+ */
+window.onload = () => {
+  loadTableData(tableData);
+}
+
+let sortDirection = false;
+let tableData = [
+  { id: '1', name: 'T1', type: 'mill', diameter: '6.35', speed: '4000', feed: '800' }
+];
+
+function loadTableData(tableData) {
+  const tableBody = document.getElementById('tableData');
+  let dataHtml = '';
+
+  for (let data of tableData) {
+    dataHtml += `<tr><td>${data.id}</td><td>${data.name}</td><td>${data.type}</td><td>${data.diameter}</td><td>${data.speed}</td><td>${data.feed}</td></tr>`;
+  }
+  tableBody.innerHTML = dataHtml;
+}
 
 
 /**

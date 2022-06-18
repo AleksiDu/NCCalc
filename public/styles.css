@@ -335,14 +335,24 @@ The Modal (background)
 }
 
 /* Table */
-
-table,
 th,
 td {
   border: 1px solid;
   color: var(--theme-text-menu);
+  padding: 8px;
 }
 
 table {
   width: 100%;
+  border-collapse: collapse;
+  font-family: "Montserrat";
+}
+
+th {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+tr:hover {
+  background-color: var(--theme-hover);
 }
