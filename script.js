@@ -48,7 +48,46 @@ div.innerHTML = `
 
 </div>
 
-<a href=""><button class="cta-button-right table">Table</button></a>
+<a href="#"><button class="cta-button-right table" id ="tableBtn">Table</button></a>
+<!-- The Modal -->
+<div id="tableModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+  <div class="modal-header">
+  <span class="tableClose">&times;</span>
+  <h1>Tool List</h1>
+</div>
+<div class="modal-body">
+<table>
+<tr>
+  <th>Tool Id</th>
+  <th>Tool Name</th>
+  <th>Tool Type</th>
+  <th>Feed</th>
+  <th>Speed</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td>T1</td>
+  <td>Mill</td>
+  <td>800</td>
+  <td>4000</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>T2</td>
+  <td>Mill</td>
+  <td>500</td>
+  <td>4800</td>
+</tr>
+</table>
+</div>
+</div>
+
+</div>
+
+
 <a href="#"><button class="cta-button-right drill">Drill</button></a>
 <a href="#"><button class="cta-button-right mill">Mill</button></a>
 `
@@ -167,6 +206,31 @@ span.addEventListener("click", () => {
 window.addEventListener("click", (event) => {
   if (event.target == modal) {
     modal.style.display = "none";
+  }
+})
+
+/**
+ *  Tool Table
+ */
+// Get the modal
+let tableModal = div.querySelector("#tableModal");
+// Get the button that opens the modal
+let tableBtn = div.querySelector("#tableBtn");
+// Get the <span> element that closes the modal
+let tableSpan = div.querySelector(".tableClose");
+// When the user clicks the button, open the modal 
+tableBtn.addEventListener("click", () => {
+  tableModal.style.display = "block";
+});
+// When the user clicks on <span> (x), close the modal
+tableSpan.addEventListener("click", () => {
+  tableModal.style.display = "none";
+})
+
+// When the user clicks anywhere outside of the modal, close it
+window.addEventListener("click", (event) => {
+  if (event.target == tableModal) {
+    tableModal.style.display = "none";
   }
 })
 

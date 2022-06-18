@@ -280,6 +280,20 @@ The Modal (background)
   cursor: pointer;
 }
 
+.tableClose {
+  color: var(--theme-text-menu);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.tableClose:hover,
+.tableClose:focus {
+  color: var(--theme-menu);
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .modal-header {
   padding: 2px 16px;
   background-color: var(--theme-hover);
@@ -318,4 +332,17 @@ The Modal (background)
 .info-logo {
   float: left;
   margin: 20px;
+}
+
+/* Table */
+
+table,
+th,
+td {
+  border: 1px solid;
+  color: var(--theme-text-menu);
+}
+
+table {
+  width: 100%;
 }
