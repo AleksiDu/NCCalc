@@ -76,6 +76,7 @@ button.addEventListener("click", () => {
 let feedMetric = "var(--metric)";
 let feedInches = "var(--inches)"
 let speed = "rpm";
+let calculator = "metric";
 
 const rootElement = document.documentElement;
 const metric = div.querySelector(".metric");
@@ -83,10 +84,12 @@ const inches = div.querySelector(".inches");
 
 metric.addEventListener("click", () => {
   rootElement.style.setProperty("--feed", feedMetric);
+  calculator = "metric";
 }, false);
 
 inches.addEventListener("click", () => {
   rootElement.style.setProperty("--feed", feedInches);
+  calculator = "inches";
 });
 
 /**
@@ -191,6 +194,10 @@ form.innerHTML = `
 </div>
 `
 
+/**
+ *  Feed & Speed Calculator
+ */
+
 const calcButton = form.querySelector(".calculate");
 
 calcButton.addEventListener("click", () => {
@@ -200,13 +207,28 @@ calcButton.addEventListener("click", () => {
   let surfaceFeed = document.getElementById('surfaceFeed').value;
   const pi = 3.14159;
 
-  let speedCalculation = (parseFloat(surfaceFeed) * 12) / (parseFloat(diameter) * pi);
-  let feedCalculation = parseFloat(speedCalculation) * parseFloat(feedPerTooth) * parseFloat(flutes);
 
-  document.getElementById('feed').value = parseInt(feedCalculation);
-  document.getElementById('speed').value = parseInt(speedCalculation);
-  // document.form1.submit();
-})
+  if (calculator === "inches") {
+    /**
+   *  Imperial Speed and Feed Calculation
+   */
+    let imperialSpeedCalculation = (parseFloat(surfaceFeed) * 12) / (parseFloat(diameter) * pi);
+    let imperialFeedCalculation = parseFloat(imperialSpeedCalculation) * parseFloat(feedPerTooth) * parseFloat(flutes);
+
+    document.getElementById('feed').value = parseInt(imperialFeedCalculation);
+    document.getElementById('speed').value = parseInt(imperialSpeedCalculation);
+
+  } else {
+    /**
+   * Metric Speed and Feed Calculation
+   */
+    let metricSpeedCalculation = (parseFloat(surfaceFeed) * 1000) / (parseFloat(diameter) * pi);
+    let metricFeedCalculation = parseFloat(metricSpeedCalculation) * parseFloat(feedPerTooth) * parseFloat(flutes);
+
+    document.getElementById('feed').value = parseInt(metricFeedCalculation);
+    document.getElementById('speed').value = parseInt(metricSpeedCalculation);
+  }
+});
 
 
 const main = document.querySelector("main");
