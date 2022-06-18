@@ -37,7 +37,7 @@ div.innerHTML = `
   <div class="modal-content">
   <div class="modal-header">
   <span class="close">&times;</span>
-  <img src ="/public/images/nc.ico" width="35" height="35" class = "info-logo">
+  <img src ="public/images/nc.ico" width="35" height="35" class = "info-logo">
   <h1>NCCalc</h1>
 </div>
 <div class="modal-body">
@@ -200,7 +200,7 @@ calcButton.addEventListener("click", () => {
   let surfaceFeed = document.getElementById('surfaceFeed').value;
   const pi = 3.14159;
 
-  let speedCalculation = parseFloat(surfaceFeed) / parseFloat(diameter) / pi * 1000;
+  let speedCalculation = (parseFloat(surfaceFeed) * 12) / (parseFloat(diameter) * pi);
   let feedCalculation = parseFloat(speedCalculation) * parseFloat(feedPerTooth) * parseFloat(flutes);
 
   document.getElementById('feed').value = parseInt(feedCalculation);
