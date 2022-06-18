@@ -62,7 +62,7 @@ div.innerHTML = `
 <table>
 <thead>
 <tr>
-<th>Id</th>
+<th onclick="sortColumn('id')">Id</th>
 <th>Name</th>
 <th>Type</th>
 <th>Diameter</th>
@@ -233,7 +233,9 @@ window.onload = () => {
 
 let sortDirection = false;
 let tableData = [
-  { id: '1', name: 'T1', type: 'mill', diameter: '6.35', speed: '4000', feed: '800' }
+  { id: 1, name: 'T1', type: 'mill', diameter: '6.35', speed: '4000', feed: '800' },
+  { id: 2, name: 'T2', type: 'mill', diameter: '8.00', speed: '4800', feed: '500' },
+  { id: 3, name: 'T3', type: 'Drill', diameter: '6.35', speed: '3500', feed: '150' }
 ];
 
 function loadTableData(tableData) {
@@ -246,6 +248,26 @@ function loadTableData(tableData) {
   tableBody.innerHTML = dataHtml;
 }
 
+/**
+ *  Tool Table Sort
+ */
+function sortColumn(columnName) {
+  const dataTyoe = typeof tableData[0][columnName];
+  sortDirection = !sortDirection;
+
+  switch (dataTyoe) {
+    case 'number':
+      sortNumberColumn(sortDirection, columnName);
+      break;
+  }
+  loadTableData(tableData);
+}
+
+function sortNumberColumn(sort, columnName) {
+  tableData = tableData.sort((a, b) => {
+    return sort ? a[columnName] - b[columnName] : b[columnName] - a[columnName];
+  })
+}
 
 /**
  * Tool Data
