@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
     res.sendFile(process.cwd() + '/index.html');
 });
 
-app.use("/api/v1/tools", toolRoute);
+app.use("/api/v1/tools_list", toolRoute);
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
