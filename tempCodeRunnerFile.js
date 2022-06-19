@@ -1,1 +1,1 @@
-PGPASSWORD
+const client = require('./db')

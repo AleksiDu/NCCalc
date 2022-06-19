@@ -1,18 +1,13 @@
 const express = require('express');
+const toolRoute = require('./components/routes');
 const bodyParser = require('body-parser');
-require('dotenv').config()
-const { Client } = require('pg');
-const client = new Client({
-    host: "localhost",
-    user: "postgres",
-    port: 5432,
-    password: process.env.PGPASSWORD,
-    database: "postgres"
-});
+require('dotenv').config();
+const client = require('./db');
+
 
 client.connect()
-client.query('SELECT $1::text as message', ['Hello world!'], (err, res) => {
-    console.log(err ? err.stack : res.rows[0].message) // Hello World!
+client.query('SELECT $1::text as message', ['Connected to Database'], (err, res) => {
+    console.log(err ? err.stack : res.rows[0].message) // Connected to Database
     client.end()
 })
 
@@ -27,6 +22,8 @@ const port = process.env.PORT || 3000;
 app.get('/', (req, res) => {
     res.sendFile(process.cwd() + '/index.html');
 });
+
+app.use("/api/v1/tools", toolRoute);
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
