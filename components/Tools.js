@@ -5,19 +5,18 @@
 class Tools {
     constructor(
         id,
+        name,
         type,
         diameter,
-        fluetes,
-        feedPerTooth,
-        surfaceFeed,
+        feed,
+        speed,
     ) {
         this.id = id;
+        this.name = name;
         this.type = type;
         this.diameter = diameter;
-        this.fluetes = fluetes;
-        this.partNumber = partNumber;
-        this.feedPerTooth = feedPerTooth;
-        this.surfaceFeed = surfaceFeed;
+        this.feed = feed;
+        this.speed = speed;
     }
 }
 

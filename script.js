@@ -1,14 +1,9 @@
-/**
- * Import componets
- */
-
-// import Tools from "./Tools";
 
 const div = document.createElement("div");
 div.classList.add("topnav");
 
 div.innerHTML = `
-<a href=""><button class="cta-button print">Print</button></a>
+<a href="#"><button class="cta-button print">Print</button></a>
   <div class="dropdown">
   <button class="cta-button units" >
   Units
@@ -31,8 +26,55 @@ div.innerHTML = `
     <a href="#" class ="light">Light theme</a>
   </div>
   </div> 
-<a href="#"><button class="cta-button info">Info</button></a>
-<a href=""><button class="cta-button-right table">Table</button></a>
+<a href="#"><button class="cta-button info" id="myBtn">Info</button></a>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+  <div class="modal-header">
+  <span class="close">&times;</span>
+  <img src ="public/images/nc.ico" width="35" height="35" class = "info-logo">
+  <h1>NCCalc</h1>
+</div>
+<div class="modal-body">
+  <p>Program version 0.0.0</p>
+  <p>2022</p>
+</div>
+</div>
+
+</div>
+
+<a href="#"><button class="cta-button-right table" id ="tableBtn">Table</button></a>
+<!-- The Modal -->
+<div id="tableModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+  <div class="modal-header">
+  <span class="tableClose">&times;</span>
+  <h1>Tool List</h1>
+</div>
+<div class="modal-body">
+<table>
+<thead>
+<tr>
+<th onclick="sortColumn('id')">Id</th>
+<th>Name</th>
+<th>Type</th>
+<th>Diameter</th>
+<th>Speed</th>
+<th>Feed</th>
+</tr>
+</thead>
+<tbody id="tableData"></tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+
 <a href="#"><button class="cta-button-right drill">Drill</button></a>
 <a href="#"><button class="cta-button-right mill">Mill</button></a>
 `
@@ -45,8 +87,8 @@ const button = div.querySelector(".print");
 button.addEventListener("click", () => {
   button.classList.toggle("active");
   //Print a specific div from a page
-  var prtContent = document.getElementsByClassName("result");
-  var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+  let prtContent = document.getElementsByClassName("result");
+  let WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
   WinPrint.document.write(prtContent.innerHTML);
   WinPrint.document.close();
   WinPrint.focus();
@@ -58,8 +100,11 @@ button.addEventListener("click", () => {
  *  Units (mm/inches) mode
  */
 let feedMetric = "var(--metric)";
-let feedInches = "var(--inches)"
+let feedInches = "var(--inches)";
+let surfaceMetric = "var(--surfaceMetric)";
+let surfaceInches = "var(--surfaceInches)";
 let speed = "rpm";
+let calculator = "metric";
 
 const rootElement = document.documentElement;
 const metric = div.querySelector(".metric");
@@ -68,11 +113,15 @@ const inches = div.querySelector(".inches");
 metric.addEventListener("click", () => {
   metric.classList.toggle("active");
   rootElement.style.setProperty("--feed", feedMetric);
+  rootElement.style.setProperty("--surface", surfaceMetric);
+  calculator = "metric";
 }, false);
 
 inches.addEventListener("click", () => {
   inches.classList.toggle("active");
   rootElement.style.setProperty("--feed", feedInches);
+  rootElement.style.setProperty("--surface", surfaceInches);
+  calculator = "inches";
 });
 
 /**
@@ -124,6 +173,102 @@ light.addEventListener("click", () => {
 });
 
 /**
+ *  Info
+ */
+
+// Get the modal
+let modal = div.querySelector("#myModal");
+// Get the button that opens the modal
+let btn = div.querySelector("#myBtn");
+// Get the <span> element that closes the modal
+let span = div.querySelector(".close");
+// When the user clicks the button, open the modal 
+btn.addEventListener("click", () => {
+  modal.style.display = "block";
+});
+// When the user clicks on <span> (x), close the modal
+span.addEventListener("click", () => {
+  modal.style.display = "none";
+})
+
+// When the user clicks anywhere outside of the modal, close it
+window.addEventListener("click", (event) => {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+})
+
+/**
+ *  Tool Table Modal
+ */
+// Get the modal
+let tableModal = div.querySelector("#tableModal");
+// Get the button that opens the modal
+let tableBtn = div.querySelector("#tableBtn");
+// Get the <span> element that closes the modal
+let tableSpan = div.querySelector(".tableClose");
+// When the user clicks the button, open the modal 
+tableBtn.addEventListener("click", () => {
+  tableModal.style.display = "block";
+});
+// When the user clicks on <span> (x), close the modal
+tableSpan.addEventListener("click", () => {
+  tableModal.style.display = "none";
+})
+
+// When the user clicks anywhere outside of the modal, close it
+window.addEventListener("click", (event) => {
+  if (event.target == tableModal) {
+    tableModal.style.display = "none";
+  }
+})
+
+/**
+ *  Tool Table
+ */
+window.onload = () => {
+  loadTableData(tableData);
+}
+
+let sortDirection = false;
+let tableData = [
+  { id: 1, name: 'T1', type: 'mill', diameter: '6.35', speed: '4000', feed: '800' },
+  { id: 2, name: 'T2', type: 'mill', diameter: '8.00', speed: '4500', feed: '500' },
+  { id: 3, name: 'T3', type: 'Drill', diameter: '6.35', speed: '6500', feed: '150' }
+];
+
+function loadTableData(tableData) {
+  const tableBody = document.getElementById('tableData');
+  let dataHtml = '';
+
+  for (let data of tableData) {
+    dataHtml += `<tr><td>${data.id}</td><td>${data.name}</td><td>${data.type}</td><td>${data.diameter}</td><td>${data.speed}</td><td>${data.feed}</td></tr>`;
+  }
+  tableBody.innerHTML = dataHtml;
+}
+
+/**
+ *  Tool Table Sort
+ */
+function sortColumn(columnName) {
+  const dataTyoe = typeof tableData[0][columnName];
+  sortDirection = !sortDirection;
+
+  switch (dataTyoe) {
+    case 'number':
+      sortNumberColumn(sortDirection, columnName);
+      break;
+  }
+  loadTableData(tableData);
+}
+
+function sortNumberColumn(sort, columnName) {
+  tableData = tableData.sort((a, b) => {
+    return sort ? a[columnName] - b[columnName] : b[columnName] - a[columnName];
+  })
+}
+
+/**
  * Tool Data
  */
 const form = document.createElement("form");
@@ -138,7 +283,7 @@ form.innerHTML = `
 <a class ="parameter">Diameter (D): <input type="number" name="fname" maxlength="5" id ="diameter"></a>
 <a class ="parameter">Flutes (Z): <input type="number" name="fname" maxlength="5" id ="flutes"></a>
 <a class ="parameter">Feed per tooth (Fz): <input type="number" name="fname" maxlength="5" id ="feedPerTooth"></a>
-<a class ="parameter">Surface feed (V): <input type="number" name="fname" maxlength="5" id ="surfaceFeed"></a>
+<a class ="parameter surface-feed">Surface feed (V): <input type="number" name="fname" maxlength="5" id ="surfaceFeed"></a>
 </div>
 
 <div class ="result">
@@ -150,6 +295,10 @@ form.innerHTML = `
 </div>
 `
 
+/**
+ *  Feed & Speed Calculator
+ */
+
 const calcButton = form.querySelector(".calculate");
 
 calcButton.addEventListener("click", () => {
@@ -159,13 +308,28 @@ calcButton.addEventListener("click", () => {
   let surfaceFeed = document.getElementById('surfaceFeed').value;
   const pi = 3.14159;
 
-  let speedCalculation = parseFloat(surfaceFeed) / parseFloat(diameter) / pi * 1000;
-  let feedCalculation = parseFloat(speedCalculation) * parseFloat(feedPerTooth) * parseFloat(flutes);
 
-  document.getElementById('feed').value = parseInt(feedCalculation);
-  document.getElementById('speed').value = parseInt(speedCalculation);
-  // document.form1.submit();
-})
+  if (calculator === "inches") {
+    /**
+   *  Imperial Speed and Feed Calculation
+   */
+    let imperialSpeedCalculation = (parseFloat(surfaceFeed) * 12) / (parseFloat(diameter) * pi);
+    let imperialFeedCalculation = parseFloat(imperialSpeedCalculation) * parseFloat(feedPerTooth) * parseFloat(flutes);
+
+    document.getElementById('feed').value = parseInt(imperialFeedCalculation);
+    document.getElementById('speed').value = parseInt(imperialSpeedCalculation);
+
+  } else {
+    /**
+   * Metric Speed and Feed Calculation
+   */
+    let metricSpeedCalculation = (parseFloat(surfaceFeed) * 1000) / (parseFloat(diameter) * pi);
+    let metricFeedCalculation = parseFloat(metricSpeedCalculation) * parseFloat(feedPerTooth) * parseFloat(flutes);
+
+    document.getElementById('feed').value = parseInt(metricFeedCalculation);
+    document.getElementById('speed').value = parseInt(metricSpeedCalculation);
+  }
+});
 
 
 const main = document.querySelector("main");
