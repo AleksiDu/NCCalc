@@ -356,3 +356,12 @@ th {
 tr:hover {
   background-color: var(--theme-hover);
 }
+
+#add {
+  float: right;
+  margin: 0 15px;
+}
+
+#remove {
+  float: right;
+}

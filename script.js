@@ -70,8 +70,9 @@ div.innerHTML = `
 <tbody id="tableData"></tbody>
 </table>
 </div>
+<button type="button" onclick="myFunction()" id="add">Add</button>
+<button type="button" onclick="myFunction()" id="remove">Remove</button>
 </div>
-
 </div>
 
 
