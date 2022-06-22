@@ -10,8 +10,8 @@ div.innerHTML = `
   <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-content" id="myDropdown">
-    <a href="#" class="metric active">MM</a>
-    <a href="#" class="inches active">Inch</a>
+    <a href="#" class="metric">MM</a>
+    <a href="#" class="inches">Inch</a>
   </div>
   </div> 
   <a class ="tool-image">

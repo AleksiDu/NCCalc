@@ -5,22 +5,22 @@
   --toolImage: url(./images/mill-image.png);
   --millImage: url(./images/mill-image.png);
   --drillImage: url(./images/drill-image.png);
-  --transition: all .5s;
-  --theme-bg: #E0DECA;
-  --dark-bg: #1B2430;
-  --light-bg: #E0DECA;
+  --transition: all 0.5s;
+  --theme-bg: #e0deca;
+  --dark-bg: #1b2430;
+  --light-bg: #e0deca;
   --theme-menu: #cdc2ae;
-  --dark-menu: #51557E;
+  --dark-menu: #51557e;
   --light-menu: #cdc2ae;
   --theme-hover: #ece5c7;
   --dark-hover: #816797;
   --light-hover: #ece5c7;
   --theme-text: #c2ded1;
-  --dark-text: #D6D5A8;
+  --dark-text: #d6d5a8;
   --light-text: #c2ded1;
-  --theme-text-menu: #1B2430;
-  --dark-text-menu: #D6D5A8;
-  --light-text-menu: #1B2430;
+  --theme-text-menu: #1b2430;
+  --dark-text-menu: #d6d5a8;
+  --light-text-menu: #1b2430;
   --surface: "m/min";
   --surfaceMetric: "m/min";
   --surfaceInches: "ft/min";
@@ -40,7 +40,6 @@ p {
   font-family: "Montserrat";
   font-weight: 900;
   color: var(--theme-text-menu);
-
 }
 
 body {
@@ -51,7 +50,6 @@ body {
   font-family: "monserrat";
   background-color: var(--theme-bg);
 }
-
 
 /* Add a #354259 background color to the top navigation */
 .topnav {
@@ -134,7 +132,7 @@ body {
   top: 12px;
   right: 1.5em;
   transition: all 0.05s ease-in-out;
-  color: #1B2430;
+  color: #1b2430;
   content: var(--feed);
 }
 
@@ -153,7 +151,7 @@ body {
   top: 12px;
   right: 1.5em;
   transition: all 0.05s ease-in-out;
-  color: #1B2430;
+  color: #1b2430;
   content: var(--surface);
 }
 
@@ -171,7 +169,7 @@ body {
   position: absolute;
   top: 12px;
   right: 1.5em;
-  color: #1B2430;
+  color: #1b2430;
   transition: all 0.05s ease-in-out;
   content: "rpm";
 }
@@ -229,7 +227,6 @@ body {
   background-size: 9em 3em;
 }
 
-
 /* 
 The Modal (background) 
 */
@@ -260,7 +257,7 @@ The Modal (background)
 .modal-content {
   background-color: var(--theme-menu);
   margin: auto;
-  padding: 20px;
+  padding: 25px;
   border: 1px solid var(--theme-hover);
   width: 80%;
 }
@@ -308,24 +305,24 @@ The Modal (background)
 @-webkit-keyframes animatetop {
   from {
     top: -300px;
-    opacity: 0
+    opacity: 0;
   }
 
   to {
     top: 0;
-    opacity: 1
+    opacity: 1;
   }
 }
 
 @keyframes animatetop {
   from {
     top: -300px;
-    opacity: 0
+    opacity: 0;
   }
 
   to {
     top: 0;
-    opacity: 1
+    opacity: 1;
   }
 }
 
