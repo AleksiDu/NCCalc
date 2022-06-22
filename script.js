@@ -112,14 +112,12 @@ const metric = div.querySelector(".metric");
 const inches = div.querySelector(".inches");
 
 metric.addEventListener("click", () => {
-  metric.classList.toggle("active");
   rootElement.style.setProperty("--feed", feedMetric);
   rootElement.style.setProperty("--surface", surfaceMetric);
   calculator = "metric";
 }, false);
 
 inches.addEventListener("click", () => {
-  inches.classList.toggle("active");
   rootElement.style.setProperty("--feed", feedInches);
   rootElement.style.setProperty("--surface", surfaceInches);
   calculator = "inches";
