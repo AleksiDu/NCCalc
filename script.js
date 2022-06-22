@@ -253,10 +253,8 @@ function sortColumn(columnName) {
   const dataTyoe = typeof tableData[0][columnName];
   sortDirection = !sortDirection;
 
-  switch (dataTyoe) {
-    case 'number':
-      sortNumberColumn(sortDirection, columnName);
-      break;
+  if (dataTyoe === 'number') {
+    sortNumberColumn(sortDirection, columnName);
   }
   loadTableData(tableData);
 }
