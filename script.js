@@ -59,7 +59,7 @@ div.innerHTML = `
 <table>
 <thead>
 <tr>
-<th onclick="sortColumn('id')">Id</th>
+<th onclick="sortColumn('id')" class = "sortTable">Id</th>
 <th>Name</th>
 <th>Type</th>
 <th>Diameter</th>
@@ -266,6 +266,20 @@ function sortNumberColumn(sort, columnName) {
     return sort ? a[columnName] - b[columnName] : b[columnName] - a[columnName];
   })
 }
+
+let sortTable = div.querySelector(".sortTable");
+let ace = "var(--ace)";
+let desc = "var(--desc)";
+let arrow = "";
+sortTable.addEventListener("click", () => {
+  if (arrow === ace || arrow == "") {
+    rootElement.style.setProperty("--arrow", desc);
+    arrow = desc;
+  } else {
+    rootElement.style.setProperty("--arrow", ace);
+    arrow = ace;
+  }
+})
 
 /**
  * Tool Data

@@ -24,6 +24,9 @@
   --surface: "m/min";
   --surfaceMetric: "m/min";
   --surfaceInches: "ft/min";
+  --arrow: "\25b4";
+  --ace: "\25b4";
+  --desc: "\25be";
 }
 
 * {
@@ -361,4 +364,13 @@ tr:hover {
 
 #remove {
   float: right;
+}
+
+/* Sort with ID */
+.sortTable {
+  cursor: pointer;
+}
+
+.sortTable::after {
+  content: var(--arrow);
 }
