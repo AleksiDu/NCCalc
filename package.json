@@ -2,10 +2,10 @@
   "name": "nccalc",
   "version": "1.0.0",
   "description": "CNC calculator",
-  "main": "script.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "body-parser": "^1.20.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "nodemon": "^2.0.18",
     "pg": "^8.7.3"
   }
 }
