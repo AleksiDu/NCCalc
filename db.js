@@ -5,7 +5,8 @@ const client = new Client({
     user: "postgres",
     port: 5432,
     password: process.env.PGPASSWORD,
-    database: "NCCalc"
+    database: "NCCalc",
+    log: console.log
 });
 
 module.exports = client;

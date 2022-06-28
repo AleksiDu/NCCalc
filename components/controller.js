@@ -1,8 +1,10 @@
 const client = require('../db');
 const getTools = (req, res) => {
-    client.query("SELECT * FROM tool_list", (error, results) => {
-        if (error) throw error;
-        res.status(200).json(results.rows)
+    console.log("here")
+    client.query("SELECT * FROM tool_list.tool_list", (error, results) => {
+        if (error) console.error(error);
+        res.status(200).json(results)
+        console.log("here2")
     })
 }
 
