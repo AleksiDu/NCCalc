@@ -1,6 +1,7 @@
 const express = require('express');
 const toolRoute = require('../components/routes');
 const bodyParser = require('body-parser');
+const path = require('path');
 require('dotenv').config();
 const client = require('../db');
 
@@ -13,7 +14,7 @@ client.query('SELECT $1::text as message', ['Connected to Database'], (err, res)
 
 const app = express();
 
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, '..')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
