@@ -2,14 +2,10 @@
   "name": "nccalc",
   "version": "1.0.0",
   "description": "CNC calculator",
-  "main": "server.js",
+  "main": "./src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
-    "start": "nodemon server.js"
-=======
-    "start": "nodemon src/app.js"
->>>>>>> ac5144b0a454fef00f3fac8c7da17823534a55dc
+    "start": "nodemon ./src/app.js"
   },
   "repository": {
     "type": "git",

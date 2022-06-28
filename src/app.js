@@ -1,8 +1,8 @@
 const express = require('express');
-const toolRoute = require('./components/routes');
+const toolRoute = require('../components/routes');
 const bodyParser = require('body-parser');
 require('dotenv').config();
-const client = require('./db');
+const client = require('../db');
 
 
 client.connect()
