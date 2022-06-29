@@ -229,6 +229,7 @@ window.onload = () => {
   loadTableData(tableData);
 }
 
+
 let sortDirection = false;
 let tableData = [
   { id: 1, name: 'T1', type: 'mill', diameter: '6.35', speed: '4000', feed: '800' },
