@@ -111,17 +111,33 @@ const rootElement = document.documentElement;
 const metric = div.querySelector(".metric");
 const inches = div.querySelector(".inches");
 
-metric.addEventListener("click", () => {
+const metricFunction = () => {
   rootElement.style.setProperty("--feed", feedMetric);
   rootElement.style.setProperty("--surface", surfaceMetric);
+  localStorage.setItem("units", "metric");
   calculator = "metric";
+}
+
+const inchesFunction = () => {
+  rootElement.style.setProperty("--feed", feedInches);
+  rootElement.style.setProperty("--surface", surfaceInches);
+  localStorage.setItem("units", "inches");
+  calculator = "inches";
+}
+
+metric.addEventListener("click", () => {
+  metricFunction();
 }, false);
 
 inches.addEventListener("click", () => {
-  rootElement.style.setProperty("--feed", feedInches);
-  rootElement.style.setProperty("--surface", surfaceInches);
-  calculator = "inches";
+  inchesFunction();
 });
+
+if (localStorage.units === "inches") {
+  inchesFunction();
+} else {
+  metricFunction();
+}
 
 /**
  *   Mill/Drill mode
