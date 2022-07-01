@@ -146,14 +146,30 @@ const millButton = div.querySelector(".mill");
 const drilButton = div.querySelector(".drill");
 let cssVarMill = "var(--millImage)";
 let cssVarDrill = "var(--drillImage)";
-millButton.addEventListener("click", () => {
+
+const millSelector = () => {
   rootElement.style.setProperty("--toolImage", cssVarMill);
+  localStorage.setItem("toolSelector", "mill");
+};
+
+const drillSelector = () => {
+  rootElement.style.setProperty("--toolImage", cssVarDrill);
+  localStorage.setItem("toolSelector", "drill");
+}
+
+millButton.addEventListener("click", () => {
+  millSelector();
 });
 
 drilButton.addEventListener("click", () => {
-  rootElement.style.setProperty("--toolImage", cssVarDrill);
+  drillSelector();
 });
 
+if (localStorage.toolSelector === "drill") {
+  drillSelector();
+} else {
+  millSelector();
+}
 
 /**
  * Edit (Dark/Light mode) theme
