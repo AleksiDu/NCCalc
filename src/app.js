@@ -1,4 +1,5 @@
 const express = require('express');
+const exphbs = require('exphbs');
 const toolRoute = require('../components/routes');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -17,11 +18,17 @@ app.use(express.static(path.join(__dirname, '..')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use("/api/v1/tools_list", toolRoute);
+// Templating Engine
+app.engine('hbs', require('exphbs'));
+app.set('view engine', 'hbs');
 
-app.get('/', (req, res) => {
-    res.sendFile(process.cwd() + '/index.html');
-});
+app.get('', (req, res) => {
+    res.render('index');
+})
+
+// app.get('/', (req, res) => {
+//     res.sendFile(process.cwd() + '/index.html');
+// });
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
