@@ -26,10 +26,6 @@ app.get('', (req, res) => {
     res.render('index');
 })
 
-// app.get('/', (req, res) => {
-//     res.sendFile(process.cwd() + '/index.html');
-// });
-
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
