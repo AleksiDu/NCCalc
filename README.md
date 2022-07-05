@@ -7,4 +7,4 @@
 5. Tool crea;
 6. Tool Creation
 
-## Link: [_NCCalc_](https://aleksidu.github.io/NCCalc/)
+## Link: [_NCCalc_](https://nccalc.herokuapp.com/)
