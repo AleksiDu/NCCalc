@@ -4,7 +4,6 @@
 2. Thread diameters;
 3. Calculator;
 4. Tool selector;
-5. Tool crea;
-6. Tool Creation
+5. Tool Creation
 
 ## Link: [_NCCalc_](https://nccalc.herokuapp.com/)
